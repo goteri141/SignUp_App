@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signup_app/screens/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -146,6 +147,15 @@ class _SignupPageState extends State<SignupPage> {
                         backgroundColor: Colors.green,
                       ),
                     );
+
+                    // After user successfully logins in, it will direct the user to the welcome page
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WelcomePage(),
+                        ),
+
+                      );
                   }
                 },
                 style: ElevatedButton.styleFrom(
