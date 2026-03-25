@@ -33,6 +33,7 @@ class _SignupPageState extends State<SignupPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmpasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -105,6 +106,30 @@ class _SignupPageState extends State<SignupPage> {
                   }
                   if (value.length < 6) {
                     return 'Password must be at least 6 characters';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 24),
+
+              // Confirm Password
+              TextFormField(
+                controller: _confirmpasswordController,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: 'Confirm Password',
+                  prefixIcon: Icon(Icons.lock),
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter confirm password';
+                  }
+                  if (value.length < 6 ) {
+                    return 'Password must be at least 6 characters';
+                  }
+                  if (value != _passwordController.text) {
+                    return null;
                   }
                   return null;
                 },
