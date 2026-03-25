@@ -85,7 +85,7 @@ class _SignupPageState extends State<SignupPage> {
                     return 'Please enter your email';
                   }
                   if (!value.contains('@')) {
-                    return 'Please enter a valid email';
+                    return 'Please enter a valid email that follows the format: username@domain.com';
                   }
                   return null;
                 },
